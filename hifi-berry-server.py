@@ -1,6 +1,5 @@
 from aiohttp import web
 import socketio
-import re
 import shlex
 from subprocess import PIPE, Popen
 
