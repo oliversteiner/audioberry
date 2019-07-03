@@ -3,6 +3,11 @@ import socketio
 import shlex
 from subprocess import PIPE, Popen
 
+# Server
+PROJECT_ROOT = '../web'
+HOST = 'localhost'
+PORT = 8882
+
 sio = socketio.AsyncServer()
 app = web.Application()
 sio.attach(app)
@@ -26,11 +31,10 @@ def get_exitcode_stdout_stderr(cmd):
     return exitcode, out, err
 
 
-
 # Server
 async def index(request):
     """Serve the client-side application."""
-    with open('static/index.html') as f:
+    with open('web/index.html') as f:
         return web.Response(text=f.read(), content_type='text/html')
 
 
@@ -65,8 +69,9 @@ def disconnect(sid):
     print('disconnect ', sid)
 
 
-app.router.add_static('/web/static', 'web/static')
-app.router.add_get('/web', index)
+app.router.add_static('/static/', path=PROJECT_ROOT + '/static',
+                      name='static')
+# app.router.add_get('/', index)
 
 if __name__ == '__main__':
-    web.run_app(app)
+    web.run_app(app, host=HOST, port=PORT)

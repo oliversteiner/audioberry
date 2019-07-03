@@ -1,5 +1,8 @@
 import audioberry.socketServer as socketServer
 
+HOST = 'localhost'
+PORT = 8882
+
 
 def welcomeMessage():
     print("")
@@ -13,7 +16,7 @@ def main():
     welcomeMessage()
 
     # run Socket-IO Server
-    socketServer.web.run_app(socketServer.app)
+    socketServer.web.run_app(socketServer.app, host=HOST, port=PORT)
     print("")
 
 
