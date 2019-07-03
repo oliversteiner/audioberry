@@ -4,7 +4,7 @@ import shlex
 from subprocess import PIPE, Popen
 
 # Server
-PROJECT_ROOT = 'web'
+PROJECT_ROOT = 'audioberry/web'
 HOST = 'localhost'
 PORT = 8882
 
