@@ -1,6 +1,6 @@
 import audioberry.socketServer as socketServer
 
-HOST = 'localhost'
+HOST = '10.0.1.35'
 PORT = 8882
 
 
