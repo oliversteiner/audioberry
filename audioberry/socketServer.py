@@ -69,8 +69,7 @@ def disconnect(sid):
     print('disconnect ', sid)
 
 
-app.router.add_static('/static/', path=PROJECT_ROOT + '/static',
-                      name='static')
+# app.router.add_static('/static/', path=PROJECT_ROOT + '/static',                     name='static')
 # app.router.add_get('/', index)
 
 if __name__ == '__main__':
