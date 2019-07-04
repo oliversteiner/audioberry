@@ -66,7 +66,6 @@ def play_playlist(TgtPlaylist):
 
     # volume set to 50%
     os.system('echo "volume 50" >' + PathToControlFile)
-
     return
 
 
@@ -78,7 +77,7 @@ def create_control_file():
         return
     try:
         os.mkfifo(PathToControlFile)
-    except :
+    except:
         print("[ERROR] Failed to create control file. Please, check path to this file.")
         exit(1)
 
@@ -87,34 +86,52 @@ def create_control_file():
 #
 #
 def radio_action(data):
+    global RadioNames
+    # set Radio Stations
     init_playlist_list()
-    # play_pause()
+    active_button = 0
+    display_message = ''
+
+    # Which button was pressed?
+    # Is Button set to On or Off?
     if data['active']:
+        # Button is set to on:
+        # Button 1
         if data['id'] == 'button-1':
-            play_station(0)
+            active_button, display_message = play_station(0)
+
+        # Button 2
         elif data['id'] == 'button-2':
-            play_station(1)
+            active_button, display_message = play_station(1)
+
+        # Button 3
         elif data['id'] == 'button-3':
-            play_station(2)
+            active_button, display_message = play_station(2)
+
+        # Button Bluetooth
         else:
-            print(' - Bluetooh Mode')
+            stop_playing()
+            active_button = '4'
+            display_message = "Bluetooth"
+
+    # Button is set to Off -> Stop Playing
     else:
-        play_pause()
+        stop_playing()
+        display_message = "Stop"
+
+    return active_button, display_message
 
 
-# Function: play_station
-#
-#
 def play_station(PlaylistTarget):
     create_control_file()
     play_playlist(PlaylistTarget)
-    print("-- Playing now: " + RadioNames[PlaylistTarget])
+    radioname = RadioNames[PlaylistTarget]
+    display_message = radioname
+    print("-- Playing now: " + radioname)
+    return PlaylistTarget + 1, display_message
 
 
-# Function: stop_playing
-#
-#
-def play_pause():
+def stop_playing():
     os.system('echo "pause" > ' + PathToControlFile)
     print('-- stop playing')
 

@@ -36,6 +36,7 @@ def byMessage():
 #
 def main():
     welcomeMessage()
+    global ioserver
 
     # run Socket-IO Server
     socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
