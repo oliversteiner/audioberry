@@ -32,15 +32,17 @@ def init_playlist_list():
     RadioNames = []
 
     # playlist 1
-    Playlists.append("http://stream.srg-ssr.ch/drs1/mp3_128.m3u")
+    Playlists.append("http://stream.srg-ssr.ch/regi_ag_so/aacp_96.asx")
     RadioNames.append("DRS 1 SO/AG")
 
     # playlist 2
-    Playlists.append("http://stream.srg-ssr.ch/drs2/mp3_128.m3u")
+    # Playlists.append("http://stream.srg-ssr.ch/drs2/mp3_128.m3u")
+    Playlists.append("http://stream.srg-ssr.ch/drs2/aacp_96.asx")
     RadioNames.append("DRS 2")
 
     # playlist 3
-    Playlists.append("http://stream.srg-ssr.ch/drs3/mp3_128.m3u")
+    # Playlists.append("http://stream.srg-ssr.ch/drs3/mp3_128.m3u")
+    Playlists.append("http://stream.srg-ssr.ch/drs3/aacp_96.asx")
     RadioNames.append("DRS 3")
 
     NumberOfPlaylists = 3
