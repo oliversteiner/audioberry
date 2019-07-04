@@ -1,6 +1,6 @@
 import audioberry.socketServer as socketServer
 
-HOST = '10.0.1.35'
+HOST = '10.0.1.30'
 PORT = 8882
 
 
@@ -11,6 +11,10 @@ def welcomeMessage():
     print("===========================")
     print("")
 
+def byMessage():
+    print("\n Bye ")
+    print("===========================")
+    print("\n \n")
 
 def main():
     welcomeMessage()
@@ -21,6 +25,4 @@ def main():
 
 
 main()
-print("")
-print("bye ")
-print("")
+byMessage()
