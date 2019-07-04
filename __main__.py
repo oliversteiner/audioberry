@@ -1,28 +1,47 @@
 import audioberry.socketServer as socketServer
+import socket
 
-HOST = '10.0.1.30'
 PORT = 8882
 
 
-def welcomeMessage():
-    print("")
-    print("===========================")
-    print("==   AudioBerry v0.1.0   ==")
-    print("===========================")
-    print("")
+# Function to display hostname and
+# IP address
+def get_Host_IP():
+    host_ip = 'localhost'
+    try:
+        host_name = socket.gethostname()
+        host_ip = socket.gethostbyname(host_name)
+    except:
+        print("Unable to get Hostname and IP")
+    return host_ip
 
+
+#
+#
+def welcomeMessage():
+    print("\n===========================")
+    print("==   AudioBerry v0.1.0   ==")
+    print("===========================\n")
+
+
+#
+#
 def byMessage():
     print("\n Bye ")
     print("===========================")
-    print("\n \n")
+    print("\n")
 
+
+#
+#
 def main():
     welcomeMessage()
 
     # run Socket-IO Server
-    socketServer.web.run_app(socketServer.app, host=HOST, port=PORT)
+    socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
 
 
+# start
 main()
 byMessage()
