@@ -8,14 +8,14 @@ PIGPIO_ADDR=10.0.1.35 python3 audioberry .
 """
 from gpiozero import Button, LED, Device
 from signal import pause
-# from gpiozero.pins.mock import MockFactory
+from gpiozero.pins.mock import MockFactory
 
 
-from audioberry.audioPlayer import radio_action
+# from audioberry.audioPlayer import radio_action
 from subprocess import check_call
 
 # Set the default pin factory to a mock factory
-# Device.pin_factory = MockFactory()
+Device.pin_factory = MockFactory()
 
 # PIN Layout
 
@@ -107,4 +107,6 @@ def run():
     button4.when_pressed = button_action4
 
     # Keep Script going
-    pause()
+
+run()
+pause()
