@@ -3,6 +3,8 @@
 """
 https://gpiozero.readthedocs.io/en/v1.5.1/
 http://abyz.me.uk/rpi/pigpio/download.html
+
+PIGPIO_ADDR=10.0.1.35 python3 audioberry .
 """
 from gpiozero import Button, LED, Device
 from signal import pause
@@ -31,6 +33,8 @@ led2 = LED(27)
 led3 = LED(22)
 led4 = LED(10)  # BLE
 
+
+
 # leds = [led1, led2, led3, led4]
 
 # BUTTON
@@ -49,18 +53,21 @@ button4 = Button(25)
 # GND - GND
 
 def action(button_nr):
+    print('-- push button')
     button = button_list[button_nr]
     status = button['active']
     led_pin = button['led']
     led = LED(led_pin)
 
     if not status:
+        print('-- button - on')
         led.on()
         button['active'] = True
-        radio_action(button)
+      #  radio_action(button)
     else:
         button['active'] = False
-        radio_action(button)
+        print('-- button - off')
+      #  radio_action(button)
         led.off()
 
 
@@ -88,6 +95,12 @@ def shutdown():
 # Listen for interaction
 def run():
     print('start listening for buttons')
+
+    led1.off()
+    led2.off()
+    led3.off()
+    led4.off()
+
     button1.when_pressed = button_action1
     button2.when_pressed = button_action2
     button3.when_pressed = button_action3
