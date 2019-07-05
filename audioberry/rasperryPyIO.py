@@ -9,7 +9,7 @@ from signal import pause
 from gpiozero.pins.mock import MockFactory
 
 
-#from audioberry.audioPlayer import radio_action
+from audioberry.audioPlayer import radio_action
 from subprocess import check_call
 
 # Set the default pin factory to a mock factory
@@ -57,10 +57,10 @@ def action(button_nr):
     if not status:
         led.on()
         button['active'] = True
-      #  radio_action(button)
+        radio_action(button)
     else:
         button['active'] = False
-      #  radio_action(button)
+        radio_action(button)
         led.off()
 
 
