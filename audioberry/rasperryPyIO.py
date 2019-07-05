@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 
 """
 https://gpiozero.readthedocs.io/en/v1.5.1/
