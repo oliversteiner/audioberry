@@ -13,7 +13,7 @@ from audioberry.audioPlayer import radio_action
 from subprocess import check_call
 
 # Set the default pin factory to a mock factory
-Device.pin_factory = MockFactory()
+# Device.pin_factory = MockFactory()
 
 # PIN Layout
 
