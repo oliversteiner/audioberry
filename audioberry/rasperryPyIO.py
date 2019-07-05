@@ -6,7 +6,7 @@ http://abyz.me.uk/rpi/pigpio/download.html
 """
 from gpiozero import Button, LED, Device
 from signal import pause
-from gpiozero.pins.mock import MockFactory
+# from gpiozero.pins.mock import MockFactory
 
 
 from audioberry.audioPlayer import radio_action
