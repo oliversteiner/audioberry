@@ -1,2 +1,3 @@
+gpiozero
 aiohttp
 python-socketio

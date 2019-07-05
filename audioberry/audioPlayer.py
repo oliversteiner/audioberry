@@ -50,8 +50,8 @@ def init_playlist_list():
 
 
 # Function: play choosen playlst / target playlist
-# Params: none
-# Return: none
+# Params:
+# Return:
 def play_playlist(TgtPlaylist):
     global Playlists
     global MPlayerCommand
