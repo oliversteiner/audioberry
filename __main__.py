@@ -28,7 +28,7 @@ def welcomeMessage():
 
 #
 #
-def byMessage():
+def byeMessage():
     print("\n Bye ")
     print("===========================")
     print("\n")
@@ -41,10 +41,10 @@ def main():
     run()
 
     # run Socket-IO Server
-    socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
+  #  socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
 
 
 # start
 main()
-byMessage()
+byeMessage()
