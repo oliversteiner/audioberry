@@ -21,7 +21,7 @@ def swLed(ev=None):
     if Led_status == 1:
         print('led off...')
     else:
-    print('...led on')
+        print('...led on')
 
 
 def loop():
