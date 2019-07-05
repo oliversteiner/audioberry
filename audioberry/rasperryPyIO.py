@@ -4,12 +4,16 @@
 https://gpiozero.readthedocs.io/en/v1.5.1/
 http://abyz.me.uk/rpi/pigpio/download.html
 """
-from gpiozero import Button, LED
+from gpiozero import Button, LED, Device
 from signal import pause
+from gpiozero.pins.mock import MockFactory
 
-from audioberry.audioPlayer import radio_action
+
+#from audioberry.audioPlayer import radio_action
 from subprocess import check_call
 
+# Set the default pin factory to a mock factory
+Device.pin_factory = MockFactory()
 
 # PIN Layout
 
@@ -53,10 +57,10 @@ def action(button_nr):
     if not status:
         led.on()
         button['active'] = True
-        radio_action(button)
+      #  radio_action(button)
     else:
         button['active'] = False
-        radio_action(button)
+      #  radio_action(button)
         led.off()
 
 
