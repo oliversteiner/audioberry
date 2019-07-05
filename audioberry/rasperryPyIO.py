@@ -94,4 +94,4 @@ def run():
     button4.when_pressed = button_action4
 
     # Keep Script going
-    pause()
+   # pause()

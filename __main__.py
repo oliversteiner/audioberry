@@ -38,11 +38,11 @@ def byMessage():
 #
 def main():
     welcomeMessage()
+    run()
 
     # run Socket-IO Server
     socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
-    run()
 
 
 # start
