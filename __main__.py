@@ -1,6 +1,8 @@
 import audioberry.socketServer as socketServer
 import socket
 
+from audioberry.rasperryPyIO import run
+
 PORT = 8882
 
 
@@ -40,6 +42,7 @@ def main():
     # run Socket-IO Server
     socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
+    run()
 
 
 # start

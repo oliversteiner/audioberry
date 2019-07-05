@@ -82,10 +82,12 @@ def shutdown():
 
 
 # Listen for interaction
-button1.when_pressed = button_action1
-button2.when_pressed = button_action2
-button3.when_pressed = button_action3
-button4.when_pressed = button_action4
+def run():
+    print('start listening for buttons')
+    button1.when_pressed = button_action1
+    button2.when_pressed = button_action2
+    button3.when_pressed = button_action3
+    button4.when_pressed = button_action4
 
-# Keep Script going
-pause()
+    # Keep Script going
+    pause()
