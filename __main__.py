@@ -1,7 +1,6 @@
-import audioberry.socketServer as socketServer
 import socket
-
-from audioberry.rasperryPyIO import run
+import audioberry.socketServer as socketServer
+import audioberry.raspberryIO as raspberryIO
 
 PORT = 8882
 
@@ -38,10 +37,10 @@ def byeMessage():
 #
 def main():
     welcomeMessage()
-    run()
+    raspberryIO.run()
 
     # run Socket-IO Server
-  #  socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
+    socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
 
 

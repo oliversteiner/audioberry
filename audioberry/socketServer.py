@@ -2,7 +2,7 @@ from aiohttp import web
 import socketio
 
 # Server
-from audioberry.audioPlayer import radio_action
+from audioberry.audioPlayer import radio_action, set_volume
 
 sio = socketio.AsyncServer()
 app = web.Application()
@@ -22,6 +22,12 @@ async def chat_message(sid, data):
 
 @sio.on('message')
 def another_event(sid, data):
+    pass
+
+
+@sio.on('volume_action')
+async def volume_action(sid, data):
+    set_volume(data)
     pass
 
 

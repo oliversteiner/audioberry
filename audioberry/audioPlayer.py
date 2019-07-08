@@ -2,6 +2,10 @@ import os
 import subprocess
 import shlex
 
+import limit as limit
+
+from audioberry.helpers import debounce
+
 """
 based on https://www.hackster.io/phfbertoleti/on-line-radio-receiver-in-linux-45c028
 
@@ -33,7 +37,7 @@ def init_playlist_list():
 
     # playlist 1
     Playlists.append("http://stream.srg-ssr.ch/regi_ag_so/aacp_96.asx")
-    RadioNames.append("DRS 1 SO/AG")
+    RadioNames.append("DRS 1:SO/AG")
 
     # playlist 2
     # Playlists.append("http://stream.srg-ssr.ch/drs2/mp3_128.m3u")
@@ -136,6 +140,14 @@ def play_station(PlaylistTarget):
 def stop_playing():
     os.system('echo "pause" > ' + PathToControlFile)
     print('-- stop playing')
+
+
+@debounce(wait=0.1)
+def set_volume(data):
+    print("-- volume_action-", data)
+    volume_value = str(data)
+    os.system('echo "set_property volume ' + volume_value + '" > ' + PathToControlFile)
+    pass
 
 
 def volume_up():

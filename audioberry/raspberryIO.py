@@ -10,7 +10,6 @@ from gpiozero import Button, LED, Device
 from signal import pause
 from gpiozero.pins.mock import MockFactory
 
-
 # from audioberry.audioPlayer import radio_action
 from subprocess import check_call
 
@@ -32,8 +31,6 @@ led1 = LED(17)
 led2 = LED(27)
 led3 = LED(22)
 led4 = LED(10)  # BLE
-
-
 
 # leds = [led1, led2, led3, led4]
 
@@ -63,11 +60,11 @@ def action(button_nr):
         print('-- button - on')
         led.on()
         button['active'] = True
-      #  radio_action(button)
+    #  radio_action(button)
     else:
         button['active'] = False
         print('-- button - off')
-      #  radio_action(button)
+        #  radio_action(button)
         led.off()
 
 
@@ -107,6 +104,9 @@ def run():
     button4.when_pressed = button_action4
 
     # Keep Script going
+    # pause()
 
-run()
-pause()
+
+if __name__ == '__main__':
+    run()
+    pause()
