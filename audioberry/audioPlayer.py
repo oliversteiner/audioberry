@@ -96,7 +96,6 @@ def radio_action(data):
     # set Radio Stations
     init_playlist_list()
     active_button = 0
-    display_message = ''
 
     # Which button was pressed?
     # Is Button set to On or Off?
@@ -114,11 +113,10 @@ def radio_action(data):
         elif data['id'] == 'button-3':
             active_button, display_message = play_station(2)
 
-        # Button Bluetooth
+        # undefined Button
         else:
             stop_playing()
-            active_button = '4'
-            display_message = "Bluetooth"
+            display_message = "..."
 
     # Button is set to Off -> Stop Playing
     else:
