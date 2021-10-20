@@ -38,10 +38,10 @@ def byeMessage():
 #
 def main():
     welcomeMessage()
-    raspberryIO.run()
+   # raspberryIO.run()
 
     # run Socket-IO Server
-    socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
+   #  socketServer.web.run_app(socketServer.app, host=get_Host_IP(), port=PORT)
     print("")
 
 
