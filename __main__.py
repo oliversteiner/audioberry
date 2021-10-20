@@ -4,6 +4,7 @@ import audioberry.raspberryIO as raspberryIO
 
 PORT = 8882
 
+print("\n INIT Audioberry \n")
 
 # Function to display hostname and
 # IP address
