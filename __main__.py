@@ -46,5 +46,5 @@ def main():
 
 
 # start
-    main()
-    byeMessage()
+main()
+byeMessage()
